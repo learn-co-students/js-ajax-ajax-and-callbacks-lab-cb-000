@@ -22,6 +22,12 @@
     <main id="main">
       <div id="errors"></div>
     </main>
+    <a href="#">Search</a>
+    <form onsubmit="searchRepositories();return false;">
+      <input id="searchTerms" type="text">
+      <input type="submit">
+    </form>
+
     <div class="flexbox-container">
       <div>
         <h3>Repositories</h3>
@@ -33,6 +39,41 @@
       </div>
     </div>
     <script src="jquery-3.1.0.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="index.js"></script>
+
+    <!-- handlebars templates -->
+
+    <!-- render search results template  -->
+    <script id="display-search-results" type="text/x-handlebars-template">
+      {{#each this}}
+      <div>
+        <h2>{{name}}</h2>
+        <img src="{{owner.avatar_url}}" style="height: 100px; width: 100px"><br>
+        <small>{{description}}</small><br>
+        <a href="{{html_url}}">{{html_url}}</a><br>
+        <a href="{{owner.url}}">{{owner.login}}</a><br>
+        <a data-repository="{{name}}" data-owner="{{owner.login}}" href="#" onclick="showCommits(this)">Show Commits</a>
+      </div>
+      {{/each}}
+    </script>
+
+    <!-- render display results template  -->
+    <script id="display-details" type="text/x-handlebars-template">
+      {{#each this}}
+      <div>
+        <img src="{{author.avatar_url}}" style="height: 100px; width: 100px"><br>
+        <p>Login name: {{author.login}}</p>
+        <p>SHA: {{sha}}</p>
+        <p>Author name: {{commit.author.name}}</p>
+      </div>
+      {{/each}}
+    </script>
+
+    <!-- error template  -->
+    <script id="error-template" type="text/x-handlebars-template">
+      <p>{{genericMessage}} </p>
+      <p>{{errorDetail}} </p>
+    </script>
   </body>
 </html>
