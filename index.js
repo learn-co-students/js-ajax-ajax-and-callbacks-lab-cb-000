@@ -54,8 +54,5 @@ function displayCommits(response){
   return commitsList;
 }
 
-//list the SHA, the author, the author's login, and the author's avatar as an image.
-
-
 $(document).ready(function (){
 	});
