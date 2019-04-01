@@ -20,6 +20,13 @@
   </head>
   <body>
     <main id="main">
+        <!-- Create a "Search Repositories" link that calls a searchRepositories function on click, takes the value of a searchTerms text input, and queries the GitHub repository search API. -->
+        <!-- <form onsubmit="searchRepositories();return false;">
+            search term: <input type="text" id="searchTerm"><br>
+            <input type="submit">
+        </form> -->
+        Search: <input type="text" id="searchTerms" name="searchTerms">
+        <a href="#" onclick="searchRepositories()">Search Repositories</a>
       <div id="errors"></div>
     </main>
     <div class="flexbox-container">
