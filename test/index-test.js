@@ -19,15 +19,7 @@ describe('index.js', () => {
     window.$ = require('jquery')
   })
 
-  describe('index.html', () => {
-    it('has the right elements', () => {
-      expect(document.getElementsByTagName('a')[0].innerHTML).toMatch(/(S|s)earch/)
-      expect(document.getElementById('searchTerms')).toExist()
-      expect(document.getElementById('results')).toExist()
-      expect(document.getElementById('details')).toExist()
-    })
-  })
-
+  
   describe('displayError', () => {
     it('sets the errors div content', () => {
       displayError()
